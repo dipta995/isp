@@ -53,11 +53,11 @@
                                   </td>
                                   <?php if ($value['com_read']==0) {?>
                                   <td class="cell-icon hidden-phone hidden-tablet">
-                                      <a href="?read=<?php echo $value['com_id']; ?>">UnRead</a>
+                                      <a href="?read=<?php echo $value['com_id']; ?>">Not Solve</a>
                                   </td>
                                   <?php }elseif($value['com_read']==1){ ?>
                                         <td class="cell-icon hidden-phone hidden-tablet">
-                                          Read
+                                          Solved
                                         </td>
                                   <?php } ?>
                                   <td class="cell-time align-right">
@@ -67,12 +67,20 @@
                           <?php }}else{
                         $viewcomp = $comp->viewComplain($com_id);
                         $data = mysqli_fetch_array($viewcomp);?>
-                <a class="btn btn-primary" href="complain.php"><< Back</a>
+                
                 <div style="min-width: 300px;" class="card">
+                <div class="card-head">
+                  <h3>Complain</h3>
+                  <hr>
+                </div>
   <div class="card-body">
-                        <?php echo ( $data['complain']);?>
-                              <p>By</p>
-                        <?php echo $data['customer_username']; ?>
+  
+                        <p><?php echo ( $data['complain']);?></p>
+                        <hr>
+                        <hr>
+                        <h4<sapan style="color:green;">Complained By :</sapan> <?php echo $data['customer_username']."(".$data['customer_phone'].")"; ?></h4><br>
+                        <a style="float: right;" class="btn btn-primary" href="complain.php"><< Back</a>
+                        
                         
                  
                     </div>

@@ -26,7 +26,7 @@ if(isset($_GET['deladmin'])){
 							<tr>
                                 <th>NO.</th>
 								<th>Email</th>
-								<th>Password</th>
+								
 								<th>Image</th>
 								<th>Roll</th>
 								<th>Action</th>
@@ -41,7 +41,7 @@ if(isset($_GET['deladmin'])){
 							<tr class="odd gradeX">
                                 <td><?php echo $i+= 1;?></td>
 								<td><?php echo $value['admin_email'];?></td>
-								<td><?php echo $value['admin_password'];?></td>
+					
 								<td><img style="height: 100px; width: 80px;" src="../<?php echo $value['image'];?>"></td>
 								<td><?php if ($value['status'] == 0) 
                                     {echo "Super Admin";}
@@ -56,7 +56,7 @@ if(isset($_GET['deladmin'])){
 									<span>||</span>
 									<a href="?deladmin=<?php echo $value['admin_id'] ;?>">Delete</a>	
 								</td>
-								<?php } ?>
+								<?php }else{ echo "<td style='color:red;'>Locked</td>"; } ?>
 							</tr>
 							<?php } ?>
 

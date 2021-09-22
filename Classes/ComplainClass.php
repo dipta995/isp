@@ -15,7 +15,7 @@
 			return $result;
 		}
 		public function viewComplain($com_id){  
-			$result = $this->db->query("SELECT * FROM complain_table where com_id = '$com_id'");
+			$result = $this->db->query("SELECT * FROM complain_table left join customer_table on customer_table.customer_id = complain_table.customer_id where com_id = '$com_id'");
 			return $result;
 		}
 		public function ShowComplainunread(){
