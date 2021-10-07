@@ -2,8 +2,8 @@
 include '../Classes/ComplainClass.php';
 include '../Classes/AreaClass.php';
 include '../Classes/PackageClass.php';
-$pack = new PackageClass();
 session_start();
+$pack = new PackageClass();
 $comp = new ComplainClass();
   if ($_SESSION['loginauth']!='admin') {
     header("Location:login.php");
@@ -110,7 +110,7 @@ $comp = new ComplainClass();
     <?php if ($adminrole==0 || $adminrole==1) {  ?>
     <a href="add_area.php" class="menucls btn btn-info w3-bar-item w3-button">Area</a>  
       <a href="customers.php" class="menucls btn btn-info w3-bar-item w3-button">Customers</a> 
-      <a href="package.php" class="menucls w3-bar-item w3-button btn btn-info"> Subscription <span style="color:red;">(<?php echo $pack->subscribenew(); ?>)</span> </a> <?php } ?>
+      <a href="package.php" class="menucls w3-bar-item w3-button btn btn-info"> Subscription <span style="color:red;">(<?php echo $comp->countsubscribe(); ?>)</span> </a> <?php } ?>
       <a href="complain.php" class="menucls w3-bar-item w3-button btn btn-info">Complain <span style="color:red;">(<?php echo $comp->ShowComplainunread(); ?>)</span></a> 
   </div>
 

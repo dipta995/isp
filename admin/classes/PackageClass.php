@@ -30,13 +30,14 @@
                 }
             }
         }
-        public function showPackageList(){
+        public function subscribenew(){
             $qry = "SELECT * FROM pacage_table WHERE delete_status=0";
             $result = $this->db->query($qry);
             return $result;
         }
+     
         public function viewSinglePackage($pacid){
-            $qry = "SELECT * FROM pacage_table WHERE pacage_id ='$pacid'";
+            $qry = "SELECT * FROM pacage_table WHERE pacage_id =$pacid";
             $result = $this->db->query($qry);
             return $result;
         }

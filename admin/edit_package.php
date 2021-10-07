@@ -1,6 +1,5 @@
 <?php include 'inc/header.php';
-include 'classes/PackageClass.php';
-$packageItem = new PackageClass();
+ 
 $pacid = "";
 if($_GET['pacid']==NULL || !isset($_GET['pacid'])){
 	"<script>window.location = 'show_package.php'; </script>"; 
@@ -8,7 +7,7 @@ if($_GET['pacid']==NULL || !isset($_GET['pacid'])){
 	$pacid = $_GET['pacid'];
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $updatePackage = $packageItem->updatePackage($_POST,$pacid);
+    $updatePackage = $pack->updatePackage($_POST,$pacid);
 }
 ?>
 <section style="padding-top: 50px;">
@@ -19,9 +18,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 if(isset($updatePackage)){
                     echo $updatePackage;
                 }
-            ?>
-            <?php
-                $view = $packageItem->viewSinglePackage($pacid);
+         
+                $view = $pack->viewSinglePackage($pacid);
                 if($view){
                     while($value = $view->fetch_assoc()){
             ?>

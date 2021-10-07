@@ -1,10 +1,9 @@
 <?php include 'inc/header.php';
-include 'classes/PackageClass.php';
-$show = new PackageClass();
+
  
 if(isset($_GET['delPacid'])){
 	$delPackage = $_GET['delPacid'];
-	$deletePackage = $show->delPackage($delPackage);
+	$deletePackage = $pack->delPackage($delPackage);
 	echo "<script> window.location='show_package.php';</script>";
 }
 ?>
@@ -33,7 +32,7 @@ if(isset($_GET['delPacid'])){
 						<tbody>
 							<?php 
                                $i = 0;
-							   $showPackage = $show->showPackageList();
+							   $showPackage = $pack->ShowAllpack();
 							   foreach($showPackage as $value){
 							?>
 							<tr class="odd gradeX">

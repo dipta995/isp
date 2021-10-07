@@ -15,11 +15,16 @@
 			return $result;
 		}
 		public function viewComplain($com_id){  
-			$result = $this->db->query("SELECT * FROM complain_table left join customer_table on customer_table.customer_id = complain_table.customer_id where com_id = '$com_id'");
+			$result = $this->db->query("SELECT * FROM complain_table left join customer_table on customer_table.customer_id = complain_table.customer_id  where com_id = '$com_id'");
 			return $result;
 		}
 		public function ShowComplainunread(){
 			$result = $this->db->query("SELECT * FROM complain_table where com_read=0");
+			$result = mysqli_num_rows($result);
+			return $result;
+		}
+		public function countsubscribe(){
+			$result = $this->db->query("SELECT * FROM subscribe_pacage  where confirmation=0");
 			$result = mysqli_num_rows($result);
 			return $result;
 		}

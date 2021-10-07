@@ -127,11 +127,7 @@
 			$result = $this->db->query($qry);
 			return $result;
 		}
-		public function subscribenew(){
-			$result = $this->db->query("SELECT * FROM subscribe_pacage where confirmation=0");
-			$result = mysqli_num_rows($result);
-			return $result;
-		}
+
 public function delpackuser($id){
 	$query = "DELETE from subscribe_pacage where subs_id = '$id'";
 	$deldata = $this->db->query($query);
