@@ -10,7 +10,7 @@
 		}
 
 		public function Customerlogin($user,$pass){
-			$result = $this->db->query("SELECT * FROM customer_table WHERE customer_username = '$user' AND customer_password='$pass'");
+			$result = $this->db->query("SELECT * FROM customer_table WHERE customer_username = '$user' AND customer_password='$pass' and blockuser=0 ");
 			$value = mysqli_fetch_array($result);
 			
 				if (mysqli_num_rows($result)>0) {
