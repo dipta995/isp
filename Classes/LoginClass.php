@@ -38,6 +38,9 @@
 			$customer_phone = mysqli_real_escape_string($this->db, $data['customer_phone']);
 			$area_id = mysqli_real_escape_string($this->db, $data['area_id']);
 			$customer_password = mysqli_real_escape_string($this->db, $data['customer_password']);
+			$customer_address = mysqli_real_escape_string($this->db, $data['customer_address']);
+
+			
 			$length = strlen ($customer_phone);  
 			$lengthpass = strlen ($customer_password);  
 
@@ -84,7 +87,8 @@
 					customer_username='$customer_username',
 					customer_phone='$customer_phone',
 					area_id='$area_id',
-					customer_password='$customer_password'
+					customer_password='$customer_password',
+					customer_address='$customer_address'
 					WHERE customer_id = $customer_id";
 
 					$createnew = $this->db->query($query);

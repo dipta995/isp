@@ -1,8 +1,8 @@
 <?php 
     include "inc/header.php";
-   
- ?>
-<?php 
+ if ($_SESSION['loginauth']==true) {
+   echo "<script>window.location='index.php';</script>";
+ }
       include 'Classes/LoginClass.php';
       $login = new LoginClass();
       if (isset($_POST['createAcc'])) {
@@ -62,6 +62,10 @@
                 
                 <?php } ?>
               </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Address</label>
+              <textarea class="form-control" name="customer_address" rows="4"></textarea>
             </div>
             <button name="createAcc" type="submit" class="btn btn-info">Confirm </button>
             <button class="btn btn-info"><a href="login.php" style="color: white;">Login</a></button>

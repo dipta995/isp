@@ -1,5 +1,7 @@
-<?php include "inc/header.php"; ?>
-<?php 
+<?php include "inc/header.php"; 
+ if ($_SESSION['loginauth']==true) {
+   echo "<script>window.location='index.php';</script>";
+ }
     include "Classes/LoginClass.php";
     $login = new LoginClass();
     if (isset($_POST['logincustomer'])) {
