@@ -2,7 +2,10 @@
     include 'inc/header.php';
     $com_id = "";
     if (isset($_GET['read'])) {
-        $comp->Makeread($_GET['read']);
+        $read = $comp->Makeread($_GET['read']);
+        if ($read) {
+          echo "<script>window.location='complain.php';</script>";
+        }
     }
     if (isset($_GET['com_id'])) {
         $com_id = $_GET['com_id'];

@@ -1,7 +1,6 @@
 <?php 
     include 'inc/header.php';
-    include '../Classes/PackageClass.php';
-    $pack = new PackageClass();
+   
  	if (isset($_GET['paid'])) {
         echo $pack->SubsupdateasPaid($_GET['paid']);
     }

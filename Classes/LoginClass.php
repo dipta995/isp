@@ -106,24 +106,22 @@
 	
 			public function insertUser($data){
 			$customer_username = mysqli_real_escape_string($this->db, $data['customer_username']);
-
-			if (!empty($customer_username)) {
-				$result = $this->db->query("SELECT * FROM customer_table WHERE customer_username = '$customer_username'");
-				 
-				if (mysqli_num_rows($result)>0) {
-					$txt = "<span style = 'color:red';>This Username Already Taken</span>";
+			$result = $this->db->query("SELECT * FROM customer_table WHERE customer_username = '$customer_username'");
+			if (empty($customer_username)) {
+				$txt = "<span style = 'color:red';>Field must not be empty</span>";
 					return $txt;
-				}else{
-				$qry = "INSERT INTO customer_table(customer_username)VALUES('$customer_username')";
+			}elseif (mysqli_num_rows($result)>0) {
+				$txt = "<span style = 'color:red';>This Username Already Taken</span>";
+				return $txt;
+			}else{
+				$qry = "INSERT INTO customer_table('customer_username')VALUES($customer_username)";
 				$sendcomp = $this->db->query($qry);
 					if ($sendcomp) {
 						return $txt = "<span style = 'color:green';>Successfully New user name created</span>";
 					}
 				}
-			}else{
-					$txt = "<span style = 'color:red';>Field must not be empty</span>";
-					return $txt;
-			}
+
+		 
 			}
 
 			public function updateUser($data, $id){
