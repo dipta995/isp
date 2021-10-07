@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <h3>Add User</h3>
             </div>
             <div class="tab-pane active" id="tab1">
-                    <form action="" method="POST" class="form-horizontal" role="form">
+                    <form action="" method="POST" class="form-horizontal">
                         <?php
                             if (isset($insertUser)) {
                                 echo $insertUser;
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
                         <div class="container bg-light">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-info" name="submit">Submit</button>
+                                <button type="submit" class="btn btn-info" name="submit">Create</button>
                                 <br>
                             </div>
                         </div>
