@@ -1,5 +1,5 @@
 <?php include 'inc/header.php';
-include 'classes/PackageClass.php';
+ 
 $create = new PackageClass();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $createPackage = $create->insertPackage($_POST);
